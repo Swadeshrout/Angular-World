@@ -1,0 +1,52 @@
+<html>
+    <head>
+      <title>Welcome</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
+      <script src="script.js"></script>
+    </head>
+    
+    <body ng-app="myModule">
+        <div class="container" ng-controller="myController" style="padding-top: 30px;">
+            
+            <div class="well well-lg" style="background-color: rgb(131, 40, 40)">
+                <h2 class="text-center" style="font-weight: bold;color: rgb(242, 191, 74);font-family: Aclonica">Sorting Data</h2>
+            </div>
+            
+            <div class="form-group row">
+                <div class="col-xs-2">
+                    <label>Sort by:</label>
+                    <select class="form-control" ng-model="sortColumn">
+                        <option value="name">Name ASC</option>
+                        <option value="dateOfBirth">DateofBirth ASC</option>
+                        <option value="gender">Gender ASC</option>
+                        <option value="-salary">Salary DESC</option>
+                    </select> 
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>DateofBirth</th>
+                        <th>Gender</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr ng-repeat="employee in employees | orderBy:sortColumn">
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.dateOfBirth | date:"dd-MM-yyyy"}}</td>
+                        <td>{{employee.gender}}</td>
+                        <td>{{employee.salary | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
