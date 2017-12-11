@@ -1,0 +1,42 @@
+<html ng-app="Mymodule">
+    
+    <head>
+        <title>Welcome</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="Js/script.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+          <div class="well well-lg" style="background-color: rgb(28, 47, 110)">
+              <h1 style="text-align: center;font-family: Atomic Age;font-weight: bold;color: floralwhite;">Welcome to Angular World</h1>
+          </div>    
+            
+            <table ng-controller ="myController" class="table table-hover">
+                <thead>
+                    <th>Technology</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                    <th>Like/Dislike</th>
+                </thead>
+                
+                <tbody style="font-family: Aclonica;font-size: 26px;">
+                    <tr ng-repeat="technology in technologies">
+                        <td>{{ technology.name }}</td>
+                        <td>{{technology.likes}}</td>
+                        <td>{{technology.dislikes}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click = "incrementLikes(technology)">Like</button>
+                            
+                            <button type="button" class="btn btn-danger" ng-click = "incrementDislikes(technology)">Dislike</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

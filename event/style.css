@@ -1,0 +1,7 @@
+button{
+    transition: font-size 0.6s;
+}
+button:hover{
+    font-size: 20px;
+}
+
