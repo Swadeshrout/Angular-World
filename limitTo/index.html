@@ -1,0 +1,47 @@
+<html ng-app="myModule">
+    <head>
+        <title>Welcome</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    
+    <body ng-controller="myController">
+     <div class="container">
+         
+        <div class="form-group row">
+            <div class="col-xs-2">
+                <label>Number of Row to display</label>
+            <input type="number" class="form-control input-sm" step="1" max="4" min="0" ng-model="limit">
+            </div>
+        </div> 
+         
+         
+         <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary(number)</th>
+                    <th>Salary(currency)</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:limit">
+                    <td>{{employee.name|uppercase}}</td>
+                    <td>{{employee.dateOfBirth|date:"dd-MM-yyyy"}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.salary|number:2}}</td>
+                    <td>{{employee.salary|currency:"₹"}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+     </div>    
+    </body>
+</html>
