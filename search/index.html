@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Welcome</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
+      <script src="script.js"></script>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body ng-app="myModule">
+        <div class="container">
+         <div class="well well-lg" style="background-color: rgb(128, 170, 255);">
+             <h1 class="text-center">Bollywood Star</h1>
+         </div>
+            
+         <div class="panel panel-default">
+             <div class="panel-header">
+                <div class="form group-row">
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" placeholder="search" ng-model="searchTxt">
+                    </div>
+                </div> 
+             </div>
+             
+             <div class="panel-body">
+                 <table ng-controller="myController" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>age</th>
+                            <th>gender</th>
+                            <th>D.O.B</th>
+                            <th>Salary</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        <tr ng-repeat="employee in employees | filter:searchTxt">
+                            <td>{{ employee.name }}</td>
+                            <td>{{ employee.age }}</td>
+                            <td>{{ employee.gender }}</td>
+                            <td>{{ employee.dob | date:"dd-MM-yyyy" }}</td>
+                            <td>{{ employee.salary }}</td>
+                            <td>{{ employee.city }}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+             </div>
+         </div>    
+            
+        </div>
+    </body>
+</html>
