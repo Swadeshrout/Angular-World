@@ -20,9 +20,22 @@
          <div class="panel panel-default">
              <div class="panel-header">
                 <div class="form group-row">
+                    
                     <div class="col-xs-2">
-                        <input type="text" class="form-control" placeholder="search" ng-model="searchTxt">
+                        <input type="text" class="form-control" placeholder="search Name" ng-model="searchTxt.name">
+                                                
                     </div>
+                    
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" placeholder="search City" ng-model="searchTxt.city">
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        <div class="checkbox">
+                            <label><input type="checkbox" ng-model="ExactMatch">Exact Match</label>
+                        </div>
+                    </div> 
+                    
                 </div> 
              </div>
              
@@ -40,7 +53,7 @@
                     </thead>
                 
                     <tbody>
-                        <tr ng-repeat="employee in employees | filter:searchTxt">
+                        <tr ng-repeat="employee in employees | filter:searchTxt:ExactMatch">
                             <td>{{ employee.name }}</td>
                             <td>{{ employee.age }}</td>
                             <td>{{ employee.gender }}</td>
